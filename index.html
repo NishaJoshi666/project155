@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <script src = 'https://aframe.io/releases/1.2.0/aframe.min.js'></script>
+
+        <script src = 'https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js'></script>
+
+        <script src = "https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+
+        <script src = './Components/Coin.js'></script>
+
+        <script src = './Components/diverRotating.js'></script>
+
+        <script src = './Components/Fish.js'></script>
+
+        <script src = './Components/Game.js'></script>
+
+        <script src = './Components/RotationMap.js'></script>
+
+    </head>
+
+    <body>
+
+        <a-scene background = 'color: #026F90'>
+
+            <a-entity id = 'camera' look-controls camera position = '0 0 20'></a-entity>
+
+            <!--assets Manager-->
+        
+            <a-assets>
+
+                <a-asset-item id = 'terrain' src = './assets/models/underWater/scene.gltf'></a-asset-item>
+        
+                <a-asset-item id = 'scuba-diver' src = './assets/models/scubaDiver/scene.gltf'></a-asset-item>
+                
+            </a-assets>
+
+            <!--Terrain-->
+        
+            <a-entity 
+            id = 'terrain'
+            gltf-model = '#terrain' 
+            scale = '7 5 9' 
+            position = '0 -70 -70' 
+            animation = 'property:position ; to: 0 -30 50 ; easing:linear; loop:true; dur:25000'
+            terrain_rotation
+            target-coin
+            fish>
+            </a-entity>
+
+            <!--Scuba Diver-->
+        
+            <a-entity 
+            id = 'scuba-diver_model'
+            gltf-model = '#scuba-diver' 
+            scale = '0.1 0.1 0.1' 
+            position = '0 -20 0' 
+            rotation = '0 0 0' 
+            diver_rotation>
+            </a-entity>
+
+        </a-scene>
+
+    </body>
+
+</html>
